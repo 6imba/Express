@@ -1,0 +1,104 @@
+req.query.name ==> http://student/bio?name=Amir
+
+app.get(/update/:id)
+req.param.id   ==> http://student/bio?name=Amir
+req.url
+req.body
+
+
+- Request Object:
+    - req.query
+    - req.params
+    - req.body + server.use(express.urlencoded({extended: false})); ==> middleware that parse data from HHTP request body.
+    - req.ip
+    - req.path
+    - req.headers
+    - req.header('host')
+    - req.header('user-agent')
+    - req.rawHeaders
+    - req.header('Content-Type')
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+- Response Object:
+    - res.end()
+    - res.send("Hi, I am about page.")
+    - res.sendFile()
+    - res.status(200).send("Hi, I am about page.")
+    - res.render()
+    - res.redirect()
+    - res.json()
+    - res.write()
+    - res.cookie()
+    - res.set() ==> res.set('header_key','header_value')
+    - res.set() ==> res.set('Content-Type','text/html')
+    - res.append('header_key','header_value')
+    - res.append('Access-Control-Allow-Origin','*')
+    - res.append('header_key',['header_value_1','header_value_2','header_value_3'])
+    - res.get('header_key') ==> res.get('x-powered-by')
+    - res.removeHeader('header_key')
+    - res.formate()
+    - res.links()
+    - res.links()
+    - res.type()
+    - res.attachment()
+    - res.download()
+
+
+
+    req.query ==> get request
+req.body ==> post request
+req.file ==> requested file
+req.ip ==> requested ip
+
+
+
+- res.send("Hi, I am about page.")
+- res.status(200).send("Hi, I am about page.")
+- res.render()
+- res.redirect()
+- res.json()
+- res.write()
+- res.send('String')
+- res.render("file-path and name below views", {obj:data})
+- res.redirect('/route/url name/path')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* app2.js ==> Send HTML element as a Response.
+* app4.js ==> Send JSON Data as a Response.
+    - when you pass object, array as response, behind the scene express stringify that object into JSON.
+    - res.send bs res.json
+
+* src/app3.js ==> Send/Serve static HTML file(public/index.html) as a Response, dynamically. ~ using middleware
+    - In express.js every thing is middleware.
+    - middleware is like checking between request and response.
+    - in express.js js we have one middleware: express.static
+
+    - express.static(root, [options]) ~ built-in node middleware.
+        * root: path to web HTML file.
+
+    - file name should always be index.html so the express.static() middleware can call a file implictly.
+
+    - relative and absolute path
+    - wrapper funtion
+    - console.log(path.join(__dirname, "../public"))
+
+
+console.log(__dirname)
+console.log(path.join(__dirname, ".."))
+console.log(path.join(__dirname, "../public"))
+console.log(path.join(__dirname, "../public/app3.html"))
+
+

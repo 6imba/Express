@@ -1,0 +1,140 @@
+# You should have install node in your system before working with express.(npm get installed alaong with node.)
+
+1. Inorder to install an express, you need first initialize your package manager. (i.e package.json files)
+    - npm init Or npm init -y (here -y flag skip credentials)
+
+2. Now install express in initialized package manager of your project.
+    - npm i express ==> (instaling package dependencies)
+
+3. Now, create your express application.
+    3.1 By importing express module that is present in express library/package that we just installed.
+        - var express = require('express') #returns function and store that function in express variable
+
+    3.2 Then use express_function exported by the express module.
+        - var app = express()
+            > The express() function is a top-level function exported by the express module.
+            > now, this app constant variable holds many methods and properties, which we use to create our express application.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Routes are the entry points in your express app.
+# And initial entry point of your app is server.js.
+4. Create Routing of your express application.
+    - app.get(route, callback)
+        > route: url_endpoint.
+        > callback: requires two parameters: (requestObject, responseObject)
+            . requestObject: represent HTTP request and has properties for the request query string, parameters, body, HTTP header, etc.
+            . responseObject:  represent HTTP response that Express app sends with respect to received an HTTP request.
+
+    - app.get("/", callback)
+        . "/" ==> represents our home or index page. ==> www.hamro tarkari.com
+
+    - app.get("/", (req, res) => {
+        res.send("Hi! I am Home page")
+    })
+        . callback defines what to do when route particular url-path.
+        . req: handles http request.
+        . res: handles http response of respective http request.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Url study:
+    - url: https://www.youtube.com/results?search_query=node.js+tutorial
+        - https://www.youtube.com/results ==> route
+        - ?search_query=node.js+tutorial ==> query string
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Express has API for Routing and that API has many Routing methods: get, post, put, delete.
+    .get - read
+    .post - create
+    .put - update
+    .delete - delete
+
+5. Now, when you run this code it will not run or give output or response:
+    const express = require('express')
+    const app = express()
+    app.get("/", (req, res) => {
+        res.send("Hi, I am index page.")
+    })
+    
+    * Because we have to listen to the incoming request inoder to receive response.
+    - app.listen(port, callback)
+        . port:
+        . callback: defines what to do when the request/connections on the specified host and port is done.
+
+    - app.listen(8000, (req, res) => {
+        console.log("Request listened!")
+    })
+
+    - The app.listen() function is used to bind and listen the connections on the specified host and port. This method is identical to Node’s http.Server.listen() method.
+
+6. Finally:
+    const express = require('express')
+    const app = express()
+    app.get("/", (req, res) => {
+        res.send("Hi, I am index page.")
+    })
+    app.listen(8000, (req, res) => {
+        console.log("Request listening to the port number 8000!")
+    })
+
+7. Run file:
+    * node app.js
+    * nodemon app.js
+    - http://localhost:8000 ==> in browser
+    - listen only one time: console.log("Request listened!") gets displayed only one time
+
+
+8. Add another route:
+    app.get("/about", (req, res) => {
+        res.send("Hi, I am about page.")
+    })
+    - http://localhost:8000/about ==> in browser
+
+
+- Express is mainly used in API and routing.
+
+
+
+- entry point: server.js
+- render views template(.hbs, pug, .ejs): views
+- npm init: package.json
+- install package dependencies
+- your node_modules, package.json, and package-lock.json are like virtual environment as in django.
+- 
+
+
+------------------------------------------------------------------------
+const server1 = express(); //initialize express by calling express
+express() :
+- express() is constructor function
+- express() top level function exported by a eprexx module.
+- express() is the default export when code require('express');
+- server1: , now server1 is our main express app's server
+- so as we have assign express() to a variable(server1), now server1 is our main express app's server
+- and this app is what we call when call methods on,
+- where we can do our url-routing, middleware and other server stuff.
+
+-------------------------------------------------------------------------------------------------------------
+
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const server = express(); //initialize express by calling express
+
+// middleware // routing
+
+server.listen(3007) 
+//.listen() methods does is create server for us.
+// So you have to give it a port number. ==> .listen(portNumber)
+// and a callback which will run once, when your server port has been allocated as you up/run server. ==> .listen(portNumber, callback)
+
+# this must of code is enough to get your server running in express. ==> node server.js or nodemon server.js
+nodemon watch file and restart server everytime, when any changes in files.
+
+----------------------------------------------------------------------------------------------
+
+- express server is responsible to route to the all requested url-route.
+
+

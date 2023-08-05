@@ -1,0 +1,13 @@
+# tool: express-generator
+    - express directory structure
+    
+    > npx express-generator --view=ejs appName
+    
+        OR
+
+    > npm install -g express-generator
+    > express --view=ejs appName
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# 

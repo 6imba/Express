@@ -1,0 +1,49 @@
+# Access to XMLHttpRequest at 'http://localhost:8006/login-user/' from origin 'http://localhost:8080'
+    has been blocked by CORS policy: 
+        Response to preflight request doesn't pass access control check: 
+            The value of the 'Access-Control-Allow-Credentials' header in the response is '' which must be 'true' when the request's credentials mode is 'include'.
+            The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
+
+
+
+# What is meant by CORS policy?
+    - Cross-origin resource sharing (CORS) is a standard mechanism that allows JavaScript XMLHttpRequest (XHR) calls executed in a web page to interact with resources from non-origin domains. CORS is a commonly implemented solution to the same-origin policy that is enforced by all browsers.
+
+# Do I need a CORS policy?
+    - I would say for most of the cases, you don't need to worry about CORS since your web app is served from a single domain. However, there could be special features like allowing to embed a page (e.g., Form, Video) outside your main web app domain, where you might consider enabling CORS in your backend.
+
+
+
+# What does it mean blocked by CORS policy?
+    - If the frontend domain does not match the value, the browser raises the red flag and blocks the API request with the CORS policy error.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# How to disable cors policy from browser side?
+    - Open chrome via command prompt ==> "C:\Program Files\Google\Chrome\Application\chrome.exe" --user-data-dir="C://chrome-dev-disabled-security" --disable-web-security --disable-site-isolation-trials
+
+# How to disable cors policy from backend:server-side(nodejs) using cors policy:
+    > npm i cors
+    - Simple Usage (Enable All CORS Requests) ==> const cors = require('cors'); app.use(cors());
+
+# Configuring CORS:
+
+
+# How to disable cors policy from backend:server-side(nodejs) using custome callback:
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+
+# for single user:
+    app.get('/quote', cors(), (req, res) => {})
+
+# for single user:
+    app.get('/quote', (req, res) => {
+        res.set('Access-Control-Allow-Origin', 'http://localhost:8080');
+        res.send({
+            quote: "The way to get started is to quit talking and begin doing."
+        });
+    })

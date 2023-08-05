@@ -1,0 +1,54 @@
+{
+    "user": [
+      {
+        "id": 1,
+        "name": "Amir Shrestha",
+        "email": "simbaamir55@gmail.com",
+        "password": "123amir",
+        "address": "Kapan",
+        "gender": "male"
+      },
+      {
+        "id": 3,
+        "name": "Resa Gurung",
+        "email": "resa26@gmail.com",
+        "password": "123resa",
+        "address": "Golfhutar",
+        "gender": "female"
+      },
+      {
+        "name": "Resa Gurung",
+        "email": "resa26@gmail.com",
+        "password": "123resa",
+        "address": "Golfhutar",
+        "gender": "female",
+        "id": 4
+      },
+      {
+        "name": "Harriet Foley",
+        "email": "jipukaf@mailinator.com",
+        "password": "Pa$$w0rd!",
+        "address": "Non cupiditate elige",
+        "gender": "female",
+        "id": 5
+      },
+      {
+        "name": "Lenore Medina",
+        "email": "vyxug@mailinator.com",
+        "password": "Pa$$w0rd!",
+        "address": "Quia tempore accusa",
+        "gender": "male",
+        "id": 6
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+      }
+    ],
+    "profile": {
+      "name": "typicode"
+    }
+}

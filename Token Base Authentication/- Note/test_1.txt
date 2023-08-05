@@ -1,0 +1,32 @@
+# app.js
+    // create new user
+    app.post('/create-user', async (req,res) => {
+        const newUserDocument = new userModel(req.body) //instance new document with mongoose_model and save it in database.
+        try{
+            const response = await newUserDocument.save() //Save the instanced document into database-collection.
+            console.log("New suer with token: ",response)
+            res.send(response)
+        }
+        catch(error){
+            res.send(error)
+        }
+    })
+
+
+# user-model.js
+    // generate token
+    const generateToken = async (id) => {
+        try{
+            const token = await jwt.sign({_id:id}, "it's_my_secret_key_it's_my_secret_key_it's_my_secret_key", {expiresIn:"3 seconds"})
+            return token
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+    // middleware to attach token with document before saving on db.
+    userSchema.pre('save', async function(next){
+        const generatedToken = await generateToken(this._id)
+        this.tokens = this.tokens.concat({token:generatedToken})
+        next()
+    })

@@ -1,0 +1,46 @@
+# Project Structure:
+    - app.js
+    - routes
+    - controller
+    - views
+    - public:( - css, - js, - images )
+    - node_modules
+    - package.json
+    - package-lock.json
+
+# Html Templates:
+    > Navbar, Sidebar,
+    > CDN or Download:
+        - Goggle Font, Font Awesome Icon,
+        - Boorstrap's Navbar, Form, Progress Bar,
+
+# Express:
+    > If using ES6:
+        - package.json: "type": "module"
+    > Script to run nodemon:
+        - "devRunServer": "nodemon app"
+
+# NPM:
+    > npm init -y
+    > npm i express@5.0.0-alpha.8
+    > npm i -D nodemon
+    > npm i ejs
+
+# app.js:
+    - Set Template Engine,
+    - Use Middlware to server Static Files,
+    - Use Middlware to Load routes,
+
+# Apllication:
+    > npm run devRunServer ==> run server
+    > 
+
+# Question:
+    > 1.
+    app.listen(port, () => {
+        console.log(`Server listening at https://localhost:${port}`)
+    })
+        VS
+    app.listen(port, () => {
+        console.log(`Server listening at http://localhost:${port}`)
+    })

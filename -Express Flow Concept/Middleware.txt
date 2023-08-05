@@ -1,0 +1,16 @@
+- app.use(express.static(staticPath)); will overwrite app.get(), because it follows to to bottom rule.
+- In express.js every thing is middleware.
+- middleware is like checking between request and response.
+- require("express")().use(middlewareName)
+- require("express")().use('',middlewareName)
+
+
+# Using Middleware:
+    - execute middleware using use funtion.
+    1. app.use(middlewareName):
+        - It mounts the specified middleware_function to all request path.
+    2. app.use([path], [callback1,callback2,........])
+        - It mounts the specified middleware_function at the specified path.
+        - middleware_function gets executed only when base path of request matches.
+
+- every route, app is middleware.

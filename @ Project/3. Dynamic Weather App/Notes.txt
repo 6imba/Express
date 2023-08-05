@@ -1,0 +1,7 @@
+- npm init -y
+- npm install express
+- Install express locally in our project.
+
+- if you keep static_html_page inside static_folder(public), then we can run it by one line of code.
+
+- 

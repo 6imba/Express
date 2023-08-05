@@ -1,0 +1,37 @@
+# Node.js dependencies
+node_modules/
+
+# Built output
+dist/
+build/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+log/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Package lock files
+package-lock.json
+yarn.lock
+
+# Testing files
+coverage/
+
+# Configuration files
+config.json
+
+# Express.js generated files
+session.store
+
+# Ignore development server
+server.js

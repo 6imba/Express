@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form name="myForm">
+        Email: <input type="email" name="email" id="email" value="simbaamir55@gmail.com">
+        Password: <input type="password" name="password" id="password">
+        <button id="login">Login</button>
+    </form>
+    <script>
+        document.getElementById("login").addEventListener("click", async function(event){
+            event.preventDefault()
+            console.log("Hi")
+            const email = document.getElementById("email").value
+            const password = document.getElementById("password").value
+            let response = await axios.post("http://localhost:8007/api/auth/login",{email,password})
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- why don't cors policy gets apply over here? -->

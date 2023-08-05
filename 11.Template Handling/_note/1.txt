@@ -1,0 +1,43 @@
+# Pass data to template from controller:
+    res.render("index", {'name':"Amir Shrestha"})
+
+# EJS
+    - display data: <%= name %>
+    - comment: <%#  %>
+    - create variable: <% var i=10;  %> ==> <% JS code  %>
+        - Condition:
+            <% if(<condition>){ %>
+                html
+            <% } else if (<condition>) {%>
+                html
+            <% } else {%>
+                html
+            <% } %>
+        - Loop:
+            <% for(i=0; i<=4; i++) %>
+                html
+            <% } %>
+        - forEach:
+            <% array.forEach(value => { %>
+                <%= value %>
+            <% }) %>
+        - Include partials(sub template) into main template:
+            <%- include(filenamepath, object) %>
+            <%- include('customer/footer.ejs', {'name':"Amir Shrestha"}) %>
+            <%- include('partials/nav.ejs') %>
+            <%- include("./partials/sidebar.ejs", {page_name:"Home"}) %>
+
+
+
+- Way of including partials in template is different for different template engines.
+
+- Nodemon doesnt restart when change made in template file.
+    - Solution: nodemon server -e .js,ejs
+    - but ejs template update restart server why?
+
+
+- tackle 404 error (page).
+    - special operator: *
+    - app.get("*", (req,res,next) => {
+        res.render("404")
+    })

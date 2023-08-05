@@ -1,0 +1,141 @@
+- ExpressJS is a backend_web_application framework used for making web server written in JavaScript and hosted within the Node.js runtime environment.
+- we can make web server from node.js but its more complicated and lengthy process.
+- So here come express.js, using which we can make server easily and fast in handy way.
+
+------------------------------------------------------------------------
+- Express component:
+    - express server
+    - middleware
+    - request
+    - response
+    - router
+------------------------------------------------------------------------
+
+const express = require("express);
+const servre = express(); ==> server is mainAppServerObject where we attach all of our endspoints, APIs, server configuration.
+
+server.listen(8000) ==> command at the end, .listen method to run server.
+
+server.get('/', (req, res) => {
+    server.send("Starter Index endpoint")
+})
+
+- .listen method binds your server to a particular port number.
+
+- server.use(middleware-name)
+
+- Static files public hosting: use express.static middleware to host static files
+    - server.user(express.static(static-file/dir-path))
+    - public dir in express project
+    - restart server after every change in statis files
+    - its not API as no any programming in backend
+    - just gives static files
+    - .static is a name of middleware to load static files inside public directory.
+
+- Create route, create endpoints, creat API
+    - .get() ==> set/create endpoint for get method of http request for a particular path.
+    - .post() ==> set/create endpoint for post method of http request for a particular path.
+    - e.g: server.get("/home", (req, res) => res.send("Homepage"))
+        - inorder to  use the arrow function funcationality you need to call the API known as endpoints.
+        - server.get("/home") ==> endpoint/ API
+        - and this API runs the arrown function corresponding to it.
+        - corresponding arrow function as two parameters, request object and response object in (req, res) order.
+
+- environment variables of node process :
+    - process.env (.env is built-in APIs of process module which is used to get the environment variables)
+    - Syntax: process.env. Return Value: This property returns an object containing the user environment.
+    - protect secret, dynamic port, flexibility
+
+- request object:
+    - request-lines(http req method, endpoint), header(browser-detials, content-type, lang, cookies), body(data sent).
+    - request object: methods, header, body, urls
+    - send data to server request in three ways:
+        - url query string ==> localhost/home?name:amir&age:22 ==> get methods
+        - url parameter ==> localhost/home/amir/22 ==> get methods
+        - body ==> localhost/login ==> post methods
+
+- Middlewares:
+    - process that runs between request and response.,
+    - after request and before response,
+    - sequesnce of middleware,
+    - req -> middleware1 -> req1 -> middleware2 -> req2 middleware3 -> response
+    - next in middleware.
+    - built-in and custome middleware,
+    - built-in middleware:
+        - body-parser
+        - express.static
+        - morgan
+        - session
+        - express.urlencoded
+        - cookie-parser
+        - 
+    - server.use(middleware)
+    - middleware-function, next
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+
+# Terminologies in Express app:
+    - server
+    - middleware
+    - request object
+    - response object
+    - router
+    - Static files public hosting
+    - environment variables
+    - 
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+- Built-in node packages|library|modules:
+    - express
+    - dorenv
+
+------------------------------------------------------------------------------------------------------------------
+
+
+Reference:
+https://expressjs.com/en/4x/api.html
+https://www.youtube.com/watch?v=6WG6w3ipc9U&list=PL2PkZdv6p7Zmu51_FBoNDcv8Bk8bXODvH&index=3
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs
+
+
+* app2.js ==> Send HTML element as a Response.
+* src/app3.js ==> Send/Serve static HTML file(public/index.html) as a Response, dynamically. ~ using middleware
+* app4.js ==> Send JSON Data as a Response.
+* app5.js ==> Template Engines (Pug, hbs, EJS) in Node JS
+
+---------------------------------------------
+const express = require('express');
+
+const app = express();
+const router = express.Router()
+
+
+
+--------------------------------------
+Express methods:
+- app.get()
+- app.post()
+- app.put()
+- app.delete()
+
+- app.use()
+- app.static()
+- app.set()
+
+
+----------------------------------------------------
+- const port = process.env.PORT || 3000;
+ 
+- { "scripts": {"devServer": "nodemon src/app.js"}} in package.json ==> npm run devServer
+- { "scripts": {"devServer": "nodemon src/app.js -e js, hbs"}} in package.json ==> npm run devServer ==> not working
+
+---------------------------------------------------
+- folder structure of express.

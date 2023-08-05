@@ -1,0 +1,2 @@
+# Test Url: http://localhost:3000/?name=Kathmandu
+# Test Url: http://localhost:3000/?name=Pokhara

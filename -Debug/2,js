@@ -1,0 +1,16 @@
+const obj1 = {
+    add: function(){
+        console.log('add')
+    },
+    sub: function(){
+        console.log('sub')
+    }
+}
+
+// obj1.add()
+// obj1.sub()
+
+// obj1.add().sub()
+
+// then chain? rout callback chain?
+

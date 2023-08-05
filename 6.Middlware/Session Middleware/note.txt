@@ -1,0 +1,5 @@
+- session middleware is used to create session in webapp.
+- Cookies and sessions are both ways to preserve the application's state between different requests the browser makes. 
+- store session.id in cookie in browser.
+- session base authentication
+- 

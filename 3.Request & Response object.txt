@@ -1,0 +1,42 @@
+req.query.name ==> http://student/bio?name=Amir
+
+app.get(/update/:id)
+req.param.id   ==> http://student/bio?name=Amir
+req.url
+req.body
+
+
+- Request Object:
+    - req.query
+    - req.params
+    - req.body + server.use(express.urlencoded({extended: false})); ==> middleware that parse data from HHTP request body.
+    - req.ip
+    - req.path
+
+
+----------------------------------------------------
+- Response Object:
+    - res.send("Hi, I am about page.")
+    - res.status(200).send("Hi, I am about page.")
+    - res.render()
+    - res.redirect()
+    - res.json()
+
+
+
+    req.query ==> get request
+req.body ==> post request
+req.file ==> requested file
+req.ip ==> requested ip
+
+
+
+- res.send("Hi, I am about page.")
+- res.status(200).send("Hi, I am about page.")
+- res.render()
+- res.redirect()
+- res.json()
+- res.write()
+- res.send('String')
+- res.render("file-path and name below views", {obj:data})
+- res.redirect('/route/url name/path')

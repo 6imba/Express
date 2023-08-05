@@ -1,0 +1,8 @@
+app.options()
+app.use()
+app.get()
+app.post()
+app.patch()
+app.put()
+app.delete()
+app.listen()

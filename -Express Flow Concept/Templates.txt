@@ -1,0 +1,45 @@
+- Dynamic template with dynamic data.
+
+- we cannot add dynamic content/data in html web page without backend langugae(node.js).
+- So here come the use of template engine inorder to add dynamic data in express.js.
+- Template Engines (Pug, hbs, EJS) in Node JS.
+- Pug, hbs, EJS: these Template Engines can be called as html with more powers.
+- lets forcus more in hbs.
+- hbs is (view engines) to use HandleBar.js.
+- you can also write logical code(if,each,etc) using template engine.
+
+* npm i hbs
+
+- you should complusaryly have views folder inside your root project folder.
+- and create html file with hds extension.
+
+- Now if you want ot use template view engine, firstly you have to set it.
+- you have to set what view engine will you be using.
+
+- to set the view engine.
+app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
+.etc
+
+
+
+----------------------------------------------------------------------
+
+- set view engine
+app.set('views', path.join(__dirname, "../views"));
+app.set("view engine", "hbs");
+
+- mention template engine route
+app.get("/", (req, res) => {
+    res.render('index')
+});
+
+- Add dynamic data/content in handle bars use double curley braces:
+    {{  }}
+
+----------------------------------------------------------------------
+- keep static pages in project/src.
+- keep dynamic pages in project/views.
+
+----------------------------------------------------------------------

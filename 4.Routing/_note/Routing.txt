@@ -1,0 +1,90 @@
+# Syntax:
+    - app.methods(path,callback)
+    > app.get('/',()=>{})
+
+# Routing:
+    - Routing refers to determining how an application responds to a client request to a particular endpoint.
+    - which is a URI (or path) and a specific HTTP request method (GET, POST, PUT, PATCH, DELETE, ALL and so on).
+    - Syntx:
+        > server.METHOD("Path", Handler_Callback)
+        - server is an instance of express.
+        - METHOD is an HTTP request method, in lowercase.
+        - PATH is a request_to_path_on_the_server.
+        - each route can have one or more handler functions, which are executed when the route is matched.
+        > server.get("Path", Handler_Callback)
+        > server.get("Path", [Handler_Callback1, Handler_Callback2])
+        > server.get("Path", [Handler_Callback1, Handler_Callback2], Handler_Callback3...)
+        > server.post("Path", Handler_Callback)
+        > server.put("Path", Handler_Callback)
+        > server.delete("Path", Handler_Callback)
+        > server.all("Path", Handler_Callback)
+    - chain route callback.
+    - server.all() & page not found, prefix
+    - path: string path, string param path, string pattern, regular expression, etc.
+    - Handler_Callback1: single, multiple, array, combination.
+
+# Refrence:
+    - https://www.youtube.com/watch?v=qfwaVKza_-g&list=PLbGui_ZYuhigerSlDF_v1t1mM2iGomXnq&index=8
+
+
+
+# Router:
+    - School Management Sysntem: Many routes: student_routes, teacher_routes, exam_routes, result_routes, event_routes, guestTeacher_routes, etc.
+    - if routes for all sub_functionality of system in written in main app js file then it will be messy.
+    - so here we create seperate routes(code) for every sub_functionality of the system.
+    - So here we have Router() class concept so that we can create seperate module for each route.
+    - Router is a class used to create modular, mountable route handlers.
+    - Router instance is a complete middleware and routing system. ****************************************************
+    - Every Express application has a built-in app router.
+    - Structure:
+        - Project (import route middleware & use it.)
+            - server.js
+            - routes(instanciate router object to use as middleware & export it.)
+                - subroute1.js
+                - subroute2.js
+
+# Procedure:
+    - create router module,
+    - create router instance,
+    - define router for every endpoints,
+    - export router instance,
+    - import router instance & use it as middleware along with path.
+
+# app.use([path], [callback1,callback2,........])
+
+# Route parameter:
+    - https://bloPost/2 ==> app.get('blogPost/:id', ()=>{})
+    - https://bloPost/trek/12 ==> app.get('blogPost/:category/:id', ()=>{})
+    - https://order/2021/and/oct ==> app.get('order/:year/:month', ()=>{})
+    - https://bus/ktm-pkr ==> app.get('bus/:from-:to', ()=>{})
+    - https://location/country.city ==> app.get('location/:nepal.:ktm', ()=>{})
+
+    - res.params ==> {"id":2}
+    - res.params ==> {"category":"trek", "id":12}
+    - res.params ==> {"year":2021, "month":"oct"}
+    - so on...
+    > const {year, month} = res.params
+
+# Route parameter & RegX: To restrict parameter.
+
+# Route parameter: require("express")().param()
+
+# Query String: 
+    - ?name=value&name2=value
+    - req.query
+
+# Route parameter ==> req.params && Query String ==> req.query.
+
+# Express Route Tester Tool.
+
+
+# Route handler_callback parameters.
+    - You can provide multiple handler_callback functions that behave like middleware to handle a request.
+    - The only exception is that these callbacks might invoke next('route') to bypass the remaining route callbacks.
+    - ie;
+        > router.get("/delete_tarkari/:pid", authentication.adminAuth, appContoller.deleteTarkariPost)
+    - 
+
+
+# Reference: https://expressjs.com/en/guide/routing.html
+

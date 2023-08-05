@@ -1,0 +1,11 @@
+{{allBlogs}}
+<br>
+{{#each allBlogs}}
+    {{this.title}}
+    <br>
+{{/each}}
+<br>
+{{#each allBlogs}}
+    <a href="/blogpost/{{this.slug}}">{{this.title}}</a>
+    <br>
+{{/each}}

@@ -1,0 +1,1 @@
+- Deplyo/Host server| Run server: node server.js --> server.listen() --> Url searched in Browser ->  Middleware -> server.get("/", ()=>{})

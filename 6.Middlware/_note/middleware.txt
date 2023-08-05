@@ -1,0 +1,12 @@
+- const bodyParser = require('body-parser');
+- server.use(bodyParser.urlencoded({ extended: true }))
+    * make sure every text including definite signs is encoded properly when retriving form fields.
+    *
+- Deplyo/Host server| Run server: node server.js --> server.listen() --> Url searched in Browser ->  Middleware -> server.get("/", ()=>{})
+
+
+// pre avialable middleware:
+server.use(middleware_name)
+
+//custome middlware:
+server.get('/route-url', middleware_name, callback)

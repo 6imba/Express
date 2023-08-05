@@ -1,0 +1,6 @@
+> npm i dotenv
+- require('dotenv').config();
+- create .env file in root dir of project
+- SECRET_KEY = it's_my_secret_key_it's_my_secret_key_it's_my_secret_key
+- process.env.SECRET_KEY
+- 

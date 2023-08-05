@@ -1,0 +1,9 @@
+# place where you can see the cookie:
+    - chrome devtool/application/storage/cookies
+    - url-bar/view-site-info/localhost//cookie
+    - console/console.log(document.cookie)
+
+
+# set header:
+    - res.setHeader('set-cookie', 'a=apple')
+    - res.cookie('a','apple')

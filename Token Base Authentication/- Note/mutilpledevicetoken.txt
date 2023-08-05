@@ -1,0 +1,35 @@
+# models:
+    tokens: [{ //token filed as an array of an object and we are using outer {} to define the schema of inner object.
+        token: {
+            type: String,
+            required: true
+        }
+    }]
+
+# app.js
+    // create new user
+    app.post('/api/create-user', async (req,res) => {
+        const newUserDocument = new userModel(req.body) //instance new document with mongoose_model and save it in database.
+        try{
+            const token = await newUserDocument.generateAuthToken()
+            await newUserDocument.save() //Save the instanced document into database-collection.
+            res.cookie('jwt_token', token)
+            res.send("Create new user with generated token and set on cookie.")
+        }
+        catch(error){
+            console.log(error)
+            res.json({created:false, error})
+        }
+    })
+
+# models:
+    userSchema.methods.generateAuthToken = async function(){
+        try{
+            const generatedToken = await jwt.sign({_id:this._id.toString()}, process.env.SECRET_KEY, {expiresIn: 30000})
+            this.tokens = this.tokens.concat({token:generatedToken})
+            // await this.save()
+            return generatedToken
+        }catch(error){
+            console.log(error)
+        }
+    }

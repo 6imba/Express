@@ -1,0 +1,68 @@
+# 1.create router module:
+    - /routes/student.js
+    - /routes/user.js
+    - /routes/blog.js
+
+# 2.create router instance:
+    const express = require('express')
+    const router = express.Router()
+
+# 3.define router routes:
+    router.get('/home',(req,res)=>{
+        res.send("Home Page")
+    })
+    router.get('/about',(req,res)=>{
+        res.send("About Page")
+    })
+    router.get('/contact',(req,res)=>{
+        res.send("Contact Page")
+    })
+
+# 4. Export the router instances:
+    - module.exports = router
+
+# 5. Import the router instances in main file(app.js):
+    - const blogRouter = require('/routes/blog.js')
+    - const userRouter = require('/routes/user.js')
+    - const studentRouter = require('/routes/student.js')
+
+# 6. load/register/use router as middleware in main file(app.js):
+    - app.use('/api/blog',blogRouter)
+    - app.use('/api/user',userRouter)
+    - app.use('/api/student',studentRouter)
+    > app.use('path',[callback,callback,...],callback)
+
+
+# All api's routes:
+    > student:
+        - http://localhost:8080/api/student/all
+        - http://localhost:8080/api/student/create
+        - http://localhost:8080/api/student/update/56
+        - http://localhost:8080/api/student/delete/23
+    > user:
+        - http://localhost:8080/api/user/all
+        - http://localhost:8080/api/user/create
+        - http://localhost:8080/api/user/update/56
+        - http://localhost:8080/api/user/delete/23
+    > blog:
+        - http://localhost:8080/api/blog/all
+        - http://localhost:8080/api/blog/create
+        - http://localhost:8080/api/blog/update/56
+        - http://localhost:8080/api/blog/delete/23
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+# const app = express();
+# const router = express.Router()
+    - The express. Router() function is used to create a new router object. This function is used when you want to create a new router object in your program to handle requests.
+    - Router class is used to create modular, mountable route handlers.
+    - A Router instance is a complete middleware and routing system. 
+
+# Reference:
+    - https://www.youtube.com/watch?v=qfwaVKza_-g&list=PLbGui_ZYuhigerSlDF_v1t1mM2iGomXnq&index=9
+    - 
+
+--------------------------------------------------------------------------------------------------------------------------- 
+
+- no need to give different path to all different api routes.
+- we can hit api on the basis of methods,parameter rather than path name.

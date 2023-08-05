@@ -1,0 +1,6 @@
+function
+Function
+array
+Array
+new
+const

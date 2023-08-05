@@ -1,0 +1,17 @@
+{
+  "name": "trishuli-raft",
+  "version": "1.0.0",
+  "description": "\"TCMIT BIT 2018 fall\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amir Shrestha",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express-handlebars": "^6.0.5"
+  }
+}

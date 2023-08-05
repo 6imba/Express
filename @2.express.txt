@@ -1,0 +1,34 @@
+- res.send("Hi, I am about page.")
+- res.status(200).send("Hi, I am about page.")
+- res.render()
+- res.redirect()
+- res.json()
+- res.write()
+----------------------------------------------------
+
+* app2.js ==> Send HTML element as a Response.
+* app4.js ==> Send JSON Data as a Response.
+    - when you pass object, array as response, behind the scene express stringify that object into JSON.
+    - res.send bs res.json
+
+* src/app3.js ==> Send/Serve static HTML file(public/index.html) as a Response, dynamically. ~ using middleware
+    - In express.js every thing is middleware.
+    - middleware is like checking between request and response.
+    - in express.js js we have one middleware: express.static
+
+    - express.static(root, [options]) ~ built-in node middleware.
+        * root: path to web HTML file.
+
+    - file name should always be index.html so the express.static() middleware can call a file implictly.
+
+    - relative and absolute path
+    - wrapper funtion
+    - console.log(path.join(__dirname, "../public"))
+
+
+console.log(__dirname)
+console.log(path.join(__dirname, ".."))
+console.log(path.join(__dirname, "../public"))
+console.log(path.join(__dirname, "../public/app3.html"))
+
+

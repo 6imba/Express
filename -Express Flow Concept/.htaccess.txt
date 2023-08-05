@@ -1,0 +1,13 @@
+- dot file:
+    > .htaccess
+    > .hello.css
+    > .env
+
+- .htaccess file, that holds the all configuration of server.
+
+- These files are palced in static folder as they atatic files.
+
+- dot file are secrect files.
+- means if we want to many any of file secert we make it start with . ~ dot.
+
+- https://www.youtube.com/watch?v=MjGKE5ScrYg&list=PLbGui_ZYuhigerSlDF_v1t1mM2iGomXnq&index=13 ===> 25:20

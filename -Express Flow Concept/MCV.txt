@@ -1,0 +1,47 @@
+- Controller can group related request handling logic seperately.
+- Instead of defining you request_handing_callback in route oe route file, you may wish to orgainze this logical code into separate module.
+- And that separate mudule is called controller.
+- This make code well maintained.
+
+# Without controller in route.js:
+    > router.post("/add_tarkari", async (req,res) => {
+        const productObj = new ProductModel({
+        product_name: req.body.product_name,
+        rate: req.body.rate,
+        description: req.body.description,
+        views: 0,
+        image: "/images/uploadedImages/"+req.file.filename,
+        category: req.body.select_category
+        });
+        await productObj.save();
+        console.log("Tarkari Added!");
+        res.redirect("/");
+      })
+
+# With controller:
+    * In route.js:
+    > router.post("/add_tarkari", appContoller.addTarkariPost)
+
+    * In controller.js:
+    const addTarkariPost = async (req, res) => {
+        const productObj = new ProductModel({
+        product_name: req.body.product_name,
+        rate: req.body.rate,
+        description: req.body.description,
+        views: 0,
+        image: "/images/uploadedImages/"+req.file.filename,
+        category: req.body.select_category
+        });
+    };
+
+# Concepts:
+    - Our main server id server.js which consist of all code.
+    - but but code in one file is messy & enormous which may create lots of difficulties.
+    - So break code into different piece,
+    - means seperate relating code into separate module from project_main_file aka (server.js).
+    - server.js / app.js
+        - routes ==> routing
+        - controller => logical code
+        - middleware ==> customer middlware/function that processes http request.
+        - models => Structure of collection document(Schema of DB table)
+        - db ==> database connection & configuration.

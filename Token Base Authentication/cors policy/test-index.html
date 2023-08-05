@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- <form name="myForm" onSubmit=""> -->
+    <!-- <form name="myForm" onSubmit="return false"> -->
+    <!-- <form name="myForm" onSubmit="return onSubmit()"> -->
+    <!-- <form name="myForm" onSubmit="onSubmit">
+        <input type="text" name="myText" id="apple">
+        <input type="submit" value="Click Me">
+    </form> -->
+    <form name="myForm">
+        <input type="text" name="myText" id="apple">
+        <button id="btn">Click</button>
+    </form>
+    <script>
+        document.getElementById("btn").addEventListener("click", async function(event){
+            event.preventDefault()
+            alert("hi")
+            console.log("Hi")
+            const data = document.getElementById("apple").value
+            console.log("111111111111111111111111")
+            // let response = await axios.post("http://localhost:8006/login-user/",credential)
+            let response = await axios.post("http://localhost:8009/login-user/",data)
+            console.log("Response ==> ",response)
+            console.log("333333333333333333333333")
+        });
+    </script>
+</body>
+</html>

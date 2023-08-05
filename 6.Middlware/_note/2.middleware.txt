@@ -1,0 +1,21 @@
+
+# body-parser:
+    > const bodyParser = require('body-parser');
+    // > app.use(bodyParser.urlencoded({ extended: false }));
+    > app.use(bodyParser.json());
+    - make sure every text including definite signs is encoded properly when retrieving form fields.
+    - help to retrieve form-field-data in express backend.
+
+# app.use(express.json())
+
+# express.json() vs bodyparser.json()???
+    - both is used for parsing of json_object(on body of request.) 
+    ==> https://stackoverflow.com/questions/47232187/express-json-vs-bodyparser-json
+
+- Deploy/Host server| Run server: node server.js --> server.listen() --> Url searched in Browser ->  Middleware -> server.get("/", ()=>{})
+
+// pre available middleware:
+server.use(middleware_name)
+
+//custom middleware:
+server.get('/route-url', middleware_name, callback)

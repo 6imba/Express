@@ -1,0 +1,21 @@
+- If you need to create a your own restful api, we have a CRUD operation and for that crud operation we have a equivalent http verb/method.
+
+# http verb/method:
+    - create ==> post http_method
+    - read ==> get http_method
+    - update ==> put/patch http_method
+    - delete ==> delete http_method
+
+# end-point/route/api:
+    - get ==> api/users
+    - post ==> api/create-users
+    - patch/put ==> api/update-users
+    - delete ==> api/delete-users
+
+# RESTFUL end-point/route/api:
+    - get ==> api/user
+    - post ==> api/user
+    - get ==> api/user/67
+    - patch/put ==> api/user/12
+    - delete ==> api/user/22
+

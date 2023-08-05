@@ -1,0 +1,47 @@
+# html and express:
+    - origin for html-frontend   ==> http://127.0.0.1:5500/html-front-end.html
+    - origin for express-backend ==> http://localhost:8009/login-user (post credential)
+    ~ no cros policy applyed by browser. Why???
+
+# vue and express:
+    - origin for html-frontend   ==> http://localhost:8080/
+    - origin for express-backend ==> http://localhost:8009/login-user (post credential)
+    ~ no cros policy applyed by browser. Why???
+
+
+Cross-origin resource sharing (CORS) allows AJAX requests to skip the Same-origin policy and access resources from remote hosts.
+
+without cors(), in network tab/response headers: no any Access-Control-Allow-Origin
+with cors(), in network tab: Referrer Policy: Access-Control-Allow-Origin: *
+
+
+
+# error:
+
+- Access to XMLHttpRequest at 'http://localhost:8009/login-user/' from origin 'http://localhost:8080' has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:8009' that is not equal to the supplied origin.
+
+- http://localhost:8009/login-user/ net::ERR_FAILED 200
+
+- Uncaught (in promise) AxiosError {message: 'Network Error', name: 'AxiosError', code: 'ERR_NETWORK', config: {…}, request: XMLHttpRequest, …}
+
+
+
+# server not run:
+    - AxiosError {message: 'Network Error', name: 'AxiosError', code: 'ERR_NETWORK', [[Prototype]]: Error}
+    - POST http://localhost:8009/login-user/ net::ERR_CONNECTION_REFUSED
+
+# server runned:
+    - Access to XMLHttpRequest at 'http://localhost:8009/login-user/' from origin 'http://localhost:8080' has been blocked by CORS policy: Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response.
+    - AxiosError {message: 'Network Error', name: 'AxiosError', code: 'ERR_NETWORK', [[Prototype]]: Error}
+    - xhr.js?1a5c:244          POST http://localhost:8009/login-user/ net::ERR_FAILED
+    > Network/All: login-user/ ==> Status: CORS error
+    > Network/All: login-user/ ==> Status: 200
+
+
+
+# xhr,fetch,api,node-request
+
+
+# cross domain:
+    - resources sharing
+    - set cookie

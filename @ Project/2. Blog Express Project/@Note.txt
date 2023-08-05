@@ -1,0 +1,79 @@
+- static_assets: css, js
+- templates: html,
+
+
+# Comcepts:
+    - keep routers in separate modules to make code clean. (keep all router into routes folder)
+    - Come one level up of directory:
+        > res.sendFile(path.join(path.dirname(__dirname),"templates/index.html"))
+        > res.sendFile(path.join(__dirname,"../templates/index.html"))
+    - Slug in url/routeParameter.(slug i text in url: like in url "https://github.com/Amir-Shrestha", Amir-Shrestha is slug)
+    - number start with 0 in JS in mutate everytime?
+    - filter post:
+        > const aBlogPost = blogs.filter((blog) => {
+            return req.params.postSlug === blog.slug;
+          })
+                OR
+        > const aBlogPost = blogs.filter((blog) => req.params.postSlug === blog.slug)
+    - Database - MOngoDB - mongoose
+
+    - Express Template Engine: Express Pug, Express Handlebar, etc.
+        > To create Dynamic Webpage we need to send our data stored in JavaScript variable into our html template.
+        > So here we need templating engine.
+        > So some of options for Express template engine are Express Pug, Express Handlebar, etc.
+        > Remember that: Handlebar & Express Handlebar are different.
+            - Handlebar: Template Engine(use in templating JavaScript>)
+            - Express Handlebar: NPM package()
+                > npm install express-handlebars
+                - dir structure of handlebars.
+                - rename templates dir to views. (if not then ==> server.set('views', './templates');)
+            - see in github how a guy create express_hadlebar package(modified template engine integrated with express) after being frusted trying to use handlebar template engine in express project.
+            - https://www.npmjs.com/package/express-handlebars
+            - https://handlebarsjs.com/guide/#what-is-handlebars
+            - Html ==> res.sendFile && express_hadlebar ==> res.render
+
+        > main.handlebars is base template
+
+    - download&install packages in devlopmemt_level_as_devDependencies, locally_in_project, globally_in_system.
+
+
+    - Error: CommonJSModule and ESM conflict:
+        - WKT, require is of CommonJSModule && import is of ESM.
+        - So, use either of one way,
+        - If you want to use ESM then in node; either 1> .mjs(file_name) OR 2> Node_JS: package.json {"type":"module"}
+        - Here In server.js, both CommonJSModule && import is used so error occur:
+            const express = require('express')
+            import { engine } from 'express-handlebars';
+                - import { engine } from 'express-handlebars'; #SyntaxError: Cannot use import statement outside a module
+                  ^^^^^^
+            # const engine = require("express-handlebars"); //CommonJSModule
+              server.engine('handlebars', engine.engine());
+                OR
+            # import engine from "express-handlebars"; //
+              server.engine('handlebars', engine());
+            - ReferenceError: __dirname is not defined in ES module scope
+
+    - Deploy&Host Express App using EngineX & PM2.
+        - Digital Ocean
+        - 
+
+
+# Express:
+    - const express = require('express')
+        - const server = express()
+        - const router = express.Router()
+    - const server = express()
+        - server.engine('handlebars', engine.engine());
+        - server.use(express.static(path.join(__dirname, "static_assets")))
+        - server.set('views', './templates');
+        - server.get("/", () => {})
+        - server.param("/", () => {})
+    - const router = express.Router()
+        - router.get("/", () => {})
+
+# Module:
+    - module
+    - exports
+    - __filename
+    - __dirname
+    - 

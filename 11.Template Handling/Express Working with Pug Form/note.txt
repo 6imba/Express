@@ -1,0 +1,4 @@
+- Two different kinds of form:
+    - form that submits via get request,
+    - form that submits via post request.
+

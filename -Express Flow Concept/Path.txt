@@ -1,0 +1,17 @@
+- console.log(path.join(process.cwd(), "views", "home.html"))
+- console.log(path.join(__dirname,"routes/blogRoutes.js"))
+- console.log("../routes/blogRoutes.js")
+
+-> process.cwd()
+-> __dirname
+-> __filename
+-> ../
+-> ./
+-> nothing
+-> no slash vs front ma slash vs back ma slash.
+
+> app.use(express.static("public")) ==> relative_path
+> app.use(express.static(join(process.cwd(), "public"))) ==> absolute_path
+> app.use('/static',express.static(join(process.cwd(), "public"))) ==> virtual_path
+
+- 

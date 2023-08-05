@@ -1,0 +1,55 @@
+- we cannot add dynamic content/data in html web page without backend langugae(node.js).
+- So here come the use of template engine inorder to add dynamic data in express.js.
+- you can also write logical code(if,each,etc) using template engine.
+- Template Engines (Pug, hbs, EJS, Mustache, Nunjucks, Dust) in Node JS.
+- Pug, hbs, EJS, Mustache, Nunjucks, Dust: these Template Engines can be called as html with more powers.
+- lets forcus more in hbs.
+- hbs is (view engines) to use HandleBar.js.
+- Handlebars.js is an extension to the Mustache templating language
+
+# set views dir path:
+- If you want to use hbs template engine,
+     * you should have all the .hbs files inside dir named as views.
+- If you have views dir in your project root dir, view engine looks for all .hbs file in that views dir.
+- But if you have views dir somewhere else in your project you neet to set the path to views folder.
+	* const viewsPath = path.join(__dirname, "../templates/views");
+	* mainServer.set('views', viewsPath);
+
+# install handlebars view engine:
+	* npm i hbs
+
+
+# set view engine (tell express app which view engine should be used.)
+	* app.set('view engine', 'hbs');
+
+
+
+- mention template engine route
+app.get("/", (req, res) => {
+    // res.render('index.hds') // .hbs estention is not compalsary as we have already set our view engine to hbs.
+    res.render('index')
+})
+
+app.get("/") and app.get("") is same.
+
+
+
+# https://expressjs.com/en/guide/using-template-engines.html
+
+
+# Setup Application for Template Engine:
+	- install template engine,
+	- setup dir where template files are located, ==> server.set("views", "./tempate_dir_name") | no need to set if folder name is views,
+	- setup template engine that you are using ==> server.set('view engine', 'installed_template_engine_name');
+	- save templates with respective template engine extention like hbs for handlebars, ejs for EJS, etc
+	- each template engine has their own template_file_syntax.
+	- for html file use res.sendFile() but for template_engine_files use res.render().
+
+	- server.set("views", "./ejs") So, res.render("index")
+	- if not set template engine the you have ti give extension; res.render("index.ejs")
+
+	- res.render("template_file_name.extention_optional", {object:data_to_be_send_to_make_dynamic_content}, callback)
+	- each template engine has their own syntax to access passed dynamic data.
+		- ejs: <%= name %>
+
+	- 

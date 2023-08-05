@@ -1,0 +1,6 @@
+Q. serverScript.js is express server which run without any package.json, package-lock.json & node modules where express is installed.
+    => because this file using express module is installed globally.
+    => if there was no any express module installed globally it would have shown error: Error: Cannot find module 'express'.
+    => talking about package.json, package-lock.json & node modules  they just hold local-development install modules and their metadata.
+    
+Q. How to disable browser same origin policy.

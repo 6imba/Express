@@ -1,0 +1,20 @@
+- save jwt where it is safe from cross site phishing(crsf/cors) ===> client_setHeader_authorization_Bearer_token.
+- expiring time of jwt should be less.
+
+
+
+https://www.youtube.com/watch?v=-Z57Ss_uiuc&ab_channel=NickChapsas
+https://www.youtube.com/watch?v=mbsmsi7l3r4&t=738s&ab_channel=WebDevSimplified
+https://www.youtube.com/watch?v=h7oVLne3J8Y&t=274s&ab_channel=ManoSriram
+https://www.youtube.com/watch?v=3Po7SOF9jkA&ab_channel=SaschaPreibisch
+https://www.youtube.com/watch?v=d2gfJ8UVPDo&ab_channel=KatiFrantz
+
+
+
+res.set('jwt_token', token)
+res.cookie('jwt_token', token)
+
+
+# Request header:
+    Authorization: Bearer token***
+

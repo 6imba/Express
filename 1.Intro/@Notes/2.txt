@@ -1,0 +1,42 @@
+1. Serve Static_Files inside Static_Folder using ExpressJS:
+    - using express middleware called static: express.static()
+        - middleware is just a function that has access to RequestObject & ResponseObject and can manipulate them.
+    - inorder to use middleware we have function call use of express().
+        - express().use(express.static())
+        - express().use(express.static(path.join(__dirname, "public")))
+            - express().use(express.static(path.join("F:\4. 𝕀𝕋\5. MERN\4.Express js\1.Project\CWH", "public")))
+            - express().use(express.static("F:\4. 𝕀𝕋\5. MERN\4.Express js\1.Project\CWH\public"))
+        # WorkIn:
+            const app = express()
+            app.use(express.static(path.join(__dirname, "public")))
+        - As middleware comes between RequestObject & ResponseObject, our project takes index.html inside public_static folder instead of index.html outside.
+
+2. Create own middleware:
+    const amirMiddleware = (req, res, next) => {}
+        - here middleware can access & manipulate  requestObject(all parameter of requestObject), responseObject.
+        - next: run to next middlware
+    - create/definde a custome middleware ==> const amirMiddleware = (req, res, next) => {}
+    - invoke middleware ==> app.use(amirMiddleware)
+    # WorkIn:
+        const amirMiddleware = (req, res, next) => {
+            console.log(typeof(req))
+            console.log(typeof(res))
+            console.log(typeof(next))
+            next()
+        }
+        app.use(amirMiddleware)
+    # Stack of middleware and its execution
+    # In most of cases we dont create middlware we just use existiong middleware. (express expert)
+    # Built-in_Middleware & Custome_ Middleware.
+
+3. Get parameters in url:
+    - req.params.parameter_identifier
+    # WorkIn:
+        - app.get("/greet/:person", (res, req) => {
+              res.send("Hello" + req.params.person)
+          })
+        - Url: //http://localhost:3000/greet/Amir
+    # fetch data from API|Database etc corresponding to given parameters.
+        - fetch post from DB with id:102.
+
+4. index.html in static folder?

@@ -1,0 +1,79 @@
+- ExpressJS is like FlaskPY.
+- Use to make API.
+- ExpressJS server side framework.
+- Express is used to create custome package.
+- npm is package manager of NodeJS. (npm install packages in node node modules directory)
+
+1. Create custome package:
+    > npm init
+        - write the asked credential.
+        OR
+    > npm init -y
+        - skips credentials
+    - creates package.json with provided credential detial.
+
+2. Install external npm express library/package/framework:
+    > npm i express
+
+
+# Command:
+    > npm init | npm init -y: creates package.json with provided credential detial.(initialize our express package/project)
+    > npm i <package_name>| npm install <package_name>: install or update all the dependencies(package/module) in your node_modules folder && keeps package/module detials(versions.etc) on package-lock.json && keeps package/module name in package.json.
+        - So, we install our dependencies in node_modules folder & keeps detials of all these dependencies in package.json & package-lock.json file.
+        - becuase of which we can again install our dependencies in node_modules by running > install i even if our node_modules folder is deleted.
+        - npm init ==> package.json
+        - npm install ==> node_modules & package-lock.json
+        - npm in nodemon: its also working
+        - npm i -g nodemon: install pakcge globally.
+            - See in C:\Users\SimbA\AppData\Roaming\npm.
+    > npm uninstall <package_name>: uninstall package from our node_modules folder of our project and remove its detials from package.json and package-lock.json.
+    > npm list: npm module installed locally in your project/package.
+    > npm list -g: npm module installed globally in your system.
+    > npm i -D nodemon: dev dependencies
+
+# Just, npm i express can doo all the thing of 1. & 2. above.
+
+Q. Why to use express?
+    - Create HTTP_Server more easily & cleanly then NodeJS.
+    - Automatically response status code but in NodeJS we have to manually write response status.
+    - save time.
+    - Craete API easily.
+    - Create Static Website.
+    - Change default status code and show custome status page.
+    - Sets Required Headers(Content-Type,etc) automatically.
+    - Make static websites using HTML, CSS & JS and serve it using ExpressJS.
+    - We can send JSOn on custome status code. ==> res.status().json()
+    - Easily make backend.
+    # Task create custome porfolio website using express.
+    - Create middleware.
+
+# Reference:
+    - https://expressjs.com/
+    - https://www.youtube.com/watch?v=7H_QH9nipNs
+
+# Express Basis Concept:
+    - Resart server for every update in code if not running with nodemon. Nodemon watching extensions: js,mjs,json.
+
+# Question:
+    1.
+    const { path } = require('express/lib/application')
+        VS
+    const path = require("path")
+
+# ResopnseObject:
+    - res.write()
+    - res.send()
+    - res.sendFile() ==> watching extensions: complet file
+    - res.json();
+    - res.render();
+    - res.status()
+    - res.status().send();
+    - res.redirect()
+
+# RequestObject:
+    - req.url
+    - req.query
+
+# Extra:
+    - Thunder Client: Like PostMan.
+    - Chrome JSON formater extension.

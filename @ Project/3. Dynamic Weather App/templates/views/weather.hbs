@@ -1,0 +1,27 @@
+{{>header}}
+  <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="row">
+                    <div class="col-md-6 col-12 main_data">
+                        <h1 class="location">
+                            <b> {{{tempData}}}: <i class="fa-solid fa-street-view"></i> {%location%}, {%country%} </b>
+                        </h2>
+                        <h3> <b>Weather:</b> (<i class="fa-solid fa-sun" style="color:#FFC312"></i> {%weather%}) </h3>
+                        <h2 id="time"><b>Time:</b></h2>
+                        <h2 id="date" style="display: inline-block;"></h2>
+                        <h1 id="temp"><b>Temperature:</b> {%temp%}&deg;C</h1> <!-- unicode -->
+                        <h3 id="temp_minmax"><b>Min</b> {%minTemp%}&deg;C | <b>Max</b> {%maxTemp%}&deg;C</h3>
+                    </div>
+                    <div class="col-md-6 col-12 main_header_right">
+                        <form class="form-inline my-2 my-lg-0 search-box">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submitBtn">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+  <script src="js/script.js"></script>
+{{>footer}}

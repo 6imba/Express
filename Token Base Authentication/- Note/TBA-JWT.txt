@@ -1,0 +1,17 @@
+- server generates a token that certifies the user identity.
+- server save the generated token on server_side(database,session,redies) and response back generated token to the client side.
+- client side saves the received token response into client/browser storage (local/cookiee/session)
+- and client will send the tokenattached to its header on every susquent request.
+- you can not only save token on browser side but also other data too and send them on every susequent request.
+
+- log-in -> server-generate-jwt-token -> save to server-db -> response generated token to client browser -> save in browser-cookie.
+- client-browser makes http request -> request+token-attach-in-header -> server -> authenticate the token attached on request-header mapping it with token saved in db.
+
+- every user has unique token.
+
+- mapping of token with user data in db.
+
+# There we use JWT-token to authenticate the genuine user.
+# login clicked -> server request -> server generate jwt_token -> server saves jwt_token on server-db -> server response jwt_token -> client save jwt_token on client_storage -> client send request to server with jwt_token attached in header.
+
+- 

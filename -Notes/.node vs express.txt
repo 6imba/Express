@@ -1,0 +1,7 @@
+# node:
+    > res.end()
+
+# express:
+    > res.send()
+    > res.json()
+    > res.write()

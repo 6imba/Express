@@ -1,0 +1,153 @@
+# 1.setup our server:
+command -> npm init -y ==> this will give us boiler plate basic package.json.
+
+package.json file:
+{
+  "name": "3.blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+
+
+#2. Install different dependencies:
+command -> npm i express mongoose ejs
+
+package.json file:
+{
+  "name": "3.blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  }
+}
+new key 'dependencies' is added in json inside package.json file.
+also new package.json file and node_modules folder is created.
+express => allows to create our server
+mongoose => is for database
+ejs is for different views
+
+
+# 3. Install devdependencies:
+command -> npm i --save-dev nodemon => automatically refresh our webpage everytime we change our files.
+
+see, new property "devDependencies" is added inside package.json file and packages of package-lock.json.
+
+Now note taht we cannot run nodemon just by installing it, so we need to create a simple script. so inside script property of package.json file.
+i.e:
+ "scripts": {
+    "devStart": "nodemon server.js"
+  },
+now create a new file as server.js
+
+command => npm run devStart => now this comman will run server.js file every time we change our files in our project
+
+now next steps is to create our server:
+
+
+
+# 4. create server:
+
+# 5. set view engine: print html to the page
+
+* npm i marked slugify
+* npm i method-override
+* npm i dompurify jsdom
+
+************************************************************
+
+createdAt: new Date(),
+1. item.createdAt ==> Wed Dec 29 2021 12:12:00 GMT+0545 (Nepal Time)
+2. item.createdAt.toLocaleDateString() ==> 12/29/2021
+
+
+# main url/route: server.js
+# sub url/route: subName.js/ articles.js
+
+
+* to view create html view/template html page:
+  app.set('view engine', 'ejs')
+
+* to print text in page:
+res.send('Hello World!')
+
+* to print text in index page:
+app.get('/', (req,res) => {
+     res.send('Hello World!')
+})
+
+* to render html page from as index html page:
+app.get('/', (req,res) => {
+  res.render('index', {articles: articles})
+})
+
+
+
+even if comment in html page node run the code.
+<!-- i.e: <%= articles.title%> -->\
+
+partial views: _form_fields.ejs
+ <%- include('_form_fields.ejs') %>
+
+ # <% %>, <%+ %>, <%- %>: https://ejs.co/
+
+label for and input id is hooked together
+hookup our database to our application
+
+const mongoose = require('mongoose') //require mongoose library
+mongoose.connect('mongodb://localhost/blog') // connect to our database //mongoose setup
+
+
+create to store our articles:
+
+default: Date.now,
+default: () => Date.now(),
+
+**************************************************************
+
+logics:
+        <div class="container">
+            <div class="row">
+                <% articles.forEach((item, index) => { %>
+                    <div class="col">
+                        <h1><%= index %></h1>
+                    </div>
+                    <% if(index % 2 != 0) { %>
+                        </div>
+                        <div class="row">
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+**************************************************************
+question:
+* 6 packages are looking for funding
+run `npm fund` for details
+
+* node follows MVC application design model.
+
+like blade in laravel like .ejs in node
+
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+[nodemon] app crashed - waiting for file changes before starting...
+
+
+Date.now() vs new Date();
